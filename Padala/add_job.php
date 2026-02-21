@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+include 'auth.php';
+require_login();
 
 $success_message = "";
 $error_message = "";

@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+include 'auth.php';
+require_login();
 
 // Check if job ID is provided
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
