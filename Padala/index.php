@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+include 'auth.php';
+require_login();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,8 @@ include 'config.php';
 <body>
     <div class="container">
         <h2>PadalaX</h2>
-                    <a href="add_job.php" class="add-job-button">+ Add Job</a>
+        <p>Welcome, <?= htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php">Log out</a></p>
+        <a href="add_job.php" class="add-job-button">+ Add Job</a>
            <div id="job-list">
     <?php include 'fetch_jobs.php'; ?>
 </div>

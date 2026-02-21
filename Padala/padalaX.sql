@@ -117,6 +117,27 @@ INSERT INTO `job_postings` (`id`, `client_name`, `origin`, `destination`, `price
 (27, 'Sarah', 'Davao', 'Davao', 500.00),
 (28, 'Rodrigo', 'Matalom', 'Mahaplag', 500.00);
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password_hash`, `created_at`) VALUES
+(1, 'admin', '$2y$12$4ZKiRWTCgD09Pwm4ZWUf.uQMEZ/tzFo9tGI45XbLQ1OmddHELm4.2', '2025-02-24 18:01:00');
+
 --
 -- Indexes for dumped tables
 --
@@ -135,6 +156,13 @@ ALTER TABLE `job_postings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -149,6 +177,12 @@ ALTER TABLE `job_details`
 --
 ALTER TABLE `job_postings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
